@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LapSelect | Tư vấn chọn laptop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="LapSelect trang chủ">
+        <span class="brand-mark">LS</span>
+        <span>LapSelect</span>
+      </a>
+      <div class="header-note">Mấy con gà thì biết gì? <span>•</span> Laptop</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <p class="eyebrow">TƯ VẤN MUA SẮM THÔNG MINH</p>
+      <h1>Chọn đúng laptop<br><em>cho nhu cầu của bạn.</em></h1>
+      <p class="intro-copy">Nhập ưu tiên của bạn, LapSelect sẽ lọc và xếp hạng các lựa chọn phù hợp nhất từ tập dữ liệu mẫu.</p>
+    </section>
+
+    <div class="workspace">
+      <aside class="panel form-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-label">BƯỚC 01</p>
+            <h2>Nhu cầu của bạn</h2>
+          </div>
+          <span class="step-number">01</span>
+        </div>
+
+        <form id="recommendation-form">
+          <div class="field-group">
+            <label for="need">Mục đích sử dụng</label>
+            <select id="need" name="need">
+              <option value="all">Tất cả nhu cầu</option>
+              <option value="van_phong">Văn phòng / Học tập</option>
+              <option value="gaming">Gaming</option>
+              <option value="do_hoa">Đồ họa / Trạm</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="budget">Ngân sách tối đa <output id="budget-value">35 triệu</output></label>
+            <input id="budget" name="budget" type="range" min="12" max="70" step="1" value="35">
+            <div class="range-meta"><span>12 triệu</span><span>70 triệu</span></div>
+          </div>
+
+          <div class="field-group">
+            <label for="weight">Cân nặng tối đa <output id="weight-value">2.5 kg</output></label>
+            <input id="weight" name="weight" type="range" min="1.1" max="3.5" step="0.1" value="2.5">
+            <div class="range-meta"><span>1.1 kg</span><span>3.5 kg</span></div>
+          </div>
+
+          <div class="field-group">
+            <label for="cpu">CPU tối thiểu <output id="cpu-value">50 / 100</output></label>
+            <input id="cpu" name="cpu" type="range" min="0" max="90" step="5" value="50">
+            <div class="range-meta"><span>Cơ bản</span><span>Cao</span></div>
+          </div>
+
+          <div class="field-group">
+            <label for="gpu">GPU tối thiểu <output id="gpu-value">30 / 100</output></label>
+            <input id="gpu" name="gpu" type="range" min="0" max="90" step="5" value="30">
+            <div class="range-meta"><span>Cơ bản</span><span>Cao</span></div>
+          </div>
+
+          <div class="field-group">
+            <label for="battery">Pin tối thiểu <output id="battery-value">50 / 100</output></label>
+            <input id="battery" name="battery" type="range" min="0" max="90" step="5" value="50">
+            <div class="range-meta"><span>Thấp</span><span>Cao</span></div>
+          </div>
+
+          <div class="weights-heading">
+            <div>
+              <p class="section-label">BƯỚC 02</p>
+              <h2>Điều chỉnh ưu tiên</h2>
+            </div>
+            <span class="info-dot" title="Tổng trọng số được tự động chuẩn hóa">i</span>
+          </div>
+          <div class="weight-grid">
+            <label>Hiệu năng <input class="weight-input" data-weight="performance" type="number" min="0" max="10" value="4"></label>
+            <label>Đồ họa <input class="weight-input" data-weight="graphics" type="number" min="0" max="10" value="2"></label>
+            <label>Nhẹ máy <input class="weight-input" data-weight="portability" type="number" min="0" max="10" value="2"></label>
+            <label>Thời lượng pin <input class="weight-input" data-weight="battery" type="number" min="0" max="10" value="2"></label>
+          </div>
+
+          <button class="primary-button" type="submit">
+            <span>Phân tích lựa chọn</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </form>
+      </aside>
+
+      <section class="results-area" aria-live="polite">
+        <div class="results-topline">
+          <div>
+            <p class="section-label">KẾT QUẢ PHÂN TÍCH</p>
+            <h2 id="result-title">Đề xuất dành cho bạn</h2>
+          </div>
+          <span class="result-count" id="result-count">0 lựa chọn</span>
+        </div>
+        <div class="logic-note">
+          <span class="logic-icon">Σ</span>
+          <p>Điểm phù hợp = <strong>Hiệu năng</strong> + <strong>Đồ họa</strong> + <strong>Độ nhẹ</strong> + <strong>Pin</strong>, theo trọng số bạn chọn.</p>
+        </div>
+        <div id="results" class="results-list"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <span>LapSelect • Demo học phần Hệ trợ giúp quyết định</span>
+    <span>Dữ liệu minh họa, có thể sai sót so với thực tế</span>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
