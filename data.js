@@ -33,7 +33,7 @@ const LAPTOPS = [
     loai_nhu_cau: "van_phong", cpu_score: 75, gpu_score: 45, trong_luong: 0.99, pin_score: 98
   },
   {
-    id: 17, ten: "Dell XPS 13 Copilot+ PC", hang: "Dell", gia: 34.50,
+    id: 17, ten: "Dell XPS 13 ", hang: "Dell", gia: 34.50,
     loai_nhu_cau: "van_phong", cpu_score: 85, gpu_score: 58, trong_luong: 1.19, pin_score: 94
   },
 
