@@ -38,6 +38,7 @@ function renderDetails(laptop) {
 	detailContent.innerHTML = `
 		<p class="eyebrow">CHI TIẾT SẢN PHẨM</p>
 		<div class="detail-heading"><div><span class="brand-label">${laptop.hang}</span><h2 id="detail-title">${laptop.ten}</h2><p class="category-tag">${categoryLabels[laptop.loai_nhu_cau]}</p></div><strong class="detail-price">${formatPrice(laptop.gia)}</strong></div>
+		${renderLaptopGallery(laptop)}
 		<div class="spec-table" role="table" aria-label="Thông số laptop">
 			${[
 				["Bộ xử lý (CPU)", laptop.cpu.replaceAll("_", " ")],

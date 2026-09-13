@@ -157,6 +157,7 @@ function renderDetails(laptop) {
       <div><span class="laptop-brand">${laptop.hang}</span><h2 id="detail-title">${laptop.ten}</h2><p class="category-tag">${needLabels[laptop.loai_nhu_cau]}</p></div>
       <strong class="detail-price">${formatPrice(laptop.gia)}</strong>
     </div>
+    ${renderLaptopGallery(laptop)}
     <div class="spec-table" role="table" aria-label="Thông số laptop">
       ${[
         ["Bộ xử lý (CPU)", displayValue(laptop.cpu)],
